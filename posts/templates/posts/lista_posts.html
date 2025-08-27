@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Postagens</title>
+</head>
+<body>
+    <h1>Posts recentes</h1>
+    <ul>
+        {% for post in postagens %}
+        <li>Autor: {{ post.autor_id }}<br>{{ post.mensagem }}<br>{{ post.criado_em }}<br></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+<!-- Luiz Enrique -->
