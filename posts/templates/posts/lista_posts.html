@@ -1,16 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Postagens</title>
-</head>
-<body>
-    <h1>Posts recentes</h1>
-    <ul>
-        {% for post in postagens %}
-        <li>Autor: {{ post.autor_id }}<br>{{ post.mensagem }}<br>{{ post.criado_em }}<br></li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Posts{% endblock title %}
+
+{% block content %}
+<h2 class="mb-4">Posts recentes</h2>
+<div class="row">
+    {% for post in postagens %}
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.autor }}</h5>
+                <p class="card-text">{{ post.mensagem }}</p>
+                <small class="text-muted">{{ post.criado_em }}</small>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>Nenhuma postagem encontrada.</p>
+    {% endfor %}
+</div>
+{% endblock content %}
 
 <!-- Luiz Enrique -->
