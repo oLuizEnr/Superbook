@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Superbook
+    # Superbook - Luiz Enrique
     'heroes',
     'posts',
     'villains',
