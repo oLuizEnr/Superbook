@@ -23,4 +23,8 @@ urlpatterns = [
     path('posts/', include('posts.urls')), # App posts
 ]
 
+admin.site.site_header = "SuperBook Admin"
+admin.site.site_title = "SuperBook Painel"
+admin.site.index_title = "Bem-Vindo ao SuperBook"
+
 # Luiz Enrique
