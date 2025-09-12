@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Detalhes da postagem</h1><br>
+    <div class="container mt-3">
+        <strong>Autor:</strong> {{ post.autor.codinome }}<br>
+        <strong>Mensagem:</strong> {{ post.mensagem }}<br>
+        {{ post.criado_em }}
+    </div>
+    <br><br><br>
+    <h1>Comentários</h1><br><br>
+    <div class="container mt-4">
+        <h5>Novo Comentário</h5>
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+    <ul class="list-group">
+      {% for comment in comments %}
+        
+        <li class="list-group-item">
+          <strong>{{ comment.autor.codinome }}</strong><br>
+          {{ comment.conteudo|linebreaksbr }}
+          {{ comment.criado_em }}
+        </li>
+      {% empty %}
+        <br><li class="list-group-item">Nenhum comentário encontrado.</li>
+      {% endfor %}
+    </ul>
+    <br>
+{% endblock content %}

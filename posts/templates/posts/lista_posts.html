@@ -1,24 +1,22 @@
-{% extends "base.html" %}
-
-{% block title %}Posts{% endblock title %}
-
+{% extends 'base.html' %}
 {% block content %}
-<h2 class="mb-4">Posts recentes</h2>
-<div class="row">
-    {% for post in postagens %}
-    <div class="col-md-4">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">{{ post.autor }}</h5>
-                <p class="card-text">{{ post.mensagem }}</p>
-                <small class="text-muted">{{ post.criado_em }}</small>
-            </div>
-        </div>
-    </div>
-    {% empty %}
-    <p>Nenhuma postagem encontrada.</p>
-    {% endfor %}
-</div>
-{% endblock content %}
+  <div class="container mt-4">
+    <h2>Lista de Posts</h2>
+    <ul class="list-group">
+      {% for post in posts %}
+        <li class="list-group-item">
+          <a href="{{ post.id }}/detalhes"><strong>{{ post.autor.codinome }}</strong></a><br>
+          {{ post.mensagem|linebreaksbr }}
+          <div class="mt-2">
+            <a href="{% url 'editar_post' post.id %}" class="btn btn-sm btn-outline-primary">Editar</a>
+            <a href="{% url 'deletar_post' post.id %}" class="btn btn-sm btn-outline-danger">Excluir</a>
+          </div>
+        </li>
+      {% empty %}
+        <li class="list-group-item">Nenhum post encontrado.</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
 
 <!-- Luiz Enrique -->
