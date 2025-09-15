@@ -8,6 +8,19 @@
     </div>
     <br><br><br>
     <h1>Comentários</h1><br><br>
+    <ul class="list-group">
+      {% for comment in comments %}
+        
+        <li class="list-group-item">
+          <strong>{{ comment.autor.codinome }}:</strong><br>
+          {{ comment.conteudo }}<br>
+          Postado em: {{ comment.criado_em }}
+        </li>
+      {% empty %}
+        <br><li class="list-group-item">Nenhum comentário encontrado.</li>
+      {% endfor %}
+    </ul>
+    <br><br><br>
     <div class="container mt-4">
         <h5>Novo Comentário</h5>
         <form method="post">
@@ -16,17 +29,4 @@
         <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
     </div>
-    <ul class="list-group">
-      {% for comment in comments %}
-        
-        <li class="list-group-item">
-          <strong>{{ comment.autor.codinome }}</strong><br>
-          {{ comment.conteudo|linebreaksbr }}
-          {{ comment.criado_em }}
-        </li>
-      {% empty %}
-        <br><li class="list-group-item">Nenhum comentário encontrado.</li>
-      {% endfor %}
-    </ul>
-    <br>
 {% endblock content %}

@@ -2,7 +2,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Post
 from .forms import PostForm
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from comments.models import Comentario
 from comments.forms import ComentarioForm
 
@@ -52,9 +52,21 @@ class PostDeleteView(DeleteView):
 
 def detalhes_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    comments = Comentario.objects.all()
-    form = ComentarioForm()
 
-    return render(request, 'posts/detalhes_post.html', {'post': post, 'comments': comments, 'form': form})
+    if request.method == 'POST':
+        form = ComentarioForm(request.POST)
+        if form.is_valid():
+            comentario = form.save(commit=False)
+            comentario.post = post
+            comentario.save()
+            return redirect('detalhes_post', pk=post.id)
+    else:
+        form = ComentarioForm()
+
+    comments = Comentario.objects.filter(post=pk)
+
+    return render(request, 'posts/detalhes_post.html', {'post': post,
+                                                        'comments': comments,
+                                                        'form': form})
 
 # Luiz Enrique

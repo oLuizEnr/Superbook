@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'posts',
     'villains',
     'comments',
+
+    # Luiz Enrique
 ]
 
 MIDDLEWARE = [
