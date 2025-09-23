@@ -5,10 +5,10 @@
     <span class="brand-title d-none d-sm-inline">SuperBook</span>
   </div>
 
-  <div>
-    <a href="{% url 'lista_herois' %}" class="me-3">Heróis</a>
-    <a href="{% url 'lista_posts' %}" class="me-3">Posts</a>
-    <a href="{% url 'lista_viloes' %}" class="me-3">Vilões</a>
+  <div class="links">
+    <a href="{% url 'lista_herois' %}">Heróis</a>
+    <a href="{% url 'lista_posts' %}">Posts</a>
+    <a href="{% url 'lista_viloes' %}">Vilões</a>
   </div>
 
   {% if user.hero.imagem %}

@@ -12,6 +12,9 @@
       {% for comment in comments %}
         
         <li class="list-group-item">
+          {% if post.autor.imagem %}
+            <img src="{{ post.autor.imagem.url }}" class="profile-pic" alt="foto">
+          {% endif %}
           <strong>{{ comment.autor.codinome }}:</strong><br>
           {{ comment.conteudo }}<br>
           Postado em: {{ comment.criado_em }}

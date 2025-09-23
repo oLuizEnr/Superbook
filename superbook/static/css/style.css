@@ -1,9 +1,18 @@
 /* superbook/superbook/static/css/style.css */
+body {
+  background-color: #fafafa;
+}
+
 .navbar-custom {
   background-color: #cce6ff;
   padding: 18px 24px;
   min-height: 96px;
-  border-radius: 12px 12px 0 0;
+}
+
+.navbar-custom-V {
+  background-color: #ffcccc;
+  padding: 18px 24px;
+  min-height: 96px;
 }
 
 .brand { gap: 12px; }                 /* espaço entre logo e texto */
@@ -15,6 +24,38 @@
   line-height: 1;                     /* alinha verticalmente ao logo */
   color: #0b2e59;                     /* azul mais escuro para contraste */
   letter-spacing: .2px;
+}
+
+.links {
+  min-width: 10vw;
+  display: flex;
+  justify-content: space-between;
+
+  & a {
+    color: #0b2e59;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  & a:hover {
+    color: #3b93ff;
+  }
+}
+
+.links-V {
+  min-width: 10vw;
+  display: flex;
+  justify-content: space-between;
+
+  & a {
+    color: #590b0b;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  & a:hover {
+    color: #ff3b3b;
+  }
 }
 
 @media (max-width: 576px) {
