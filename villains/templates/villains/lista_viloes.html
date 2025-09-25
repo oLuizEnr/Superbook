@@ -2,8 +2,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Vilões</h1>
-  <p>Em breve: CRUD de vilões.</p>
+  <h2 class="mb-4">Vilões cadastrados</h2>
+  
+  <div class="row">
+    {% for villain in villains %}
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="card-body">
+          {% if villain.imagem %}
+          <img src="{{ villain.imagem.url }}" alt="" class="profile-pic">
+          {% endif %}
+          <h5 class="card-title">{{ villain.codinome }}</h5>
+          <p class="card-text">{{ villain.poder_principal }}</p>
+          <small class="text-muted">{{ villain.cidade }}</small>
+          <a href="{{ villain.pk }}/editar/" 
+          class="btn btn-sm btn-outline-primary">Editar</a>
+          <a href="{{ villain.pk }}/deletar/"
+          class="btn btn-sm btn-outline-danger">Excluir</a>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <p>Nenhum vilão encontrado</p>
+    {% endfor %}
+  </div>
 {% endblock %}
 
 <!-- Luiz Enrique -->

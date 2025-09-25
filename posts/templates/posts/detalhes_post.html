@@ -12,8 +12,8 @@
       {% for comment in comments %}
         
         <li class="list-group-item">
-          {% if post.autor.imagem %}
-            <img src="{{ post.autor.imagem.url }}" class="profile-pic" alt="foto">
+          {% if comment.autor.imagem %}
+            <img src="{{ comment.autor.imagem.url }}" class="profile-pic" alt="foto">
           {% endif %}
           <strong>{{ comment.autor.codinome }}:</strong><br>
           {{ comment.conteudo }}<br>
@@ -33,3 +33,5 @@
         </form>
     </div>
 {% endblock content %}
+
+<!-- Luiz Enrique -->

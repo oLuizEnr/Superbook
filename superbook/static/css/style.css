@@ -26,6 +26,14 @@ body {
   letter-spacing: .2px;
 }
 
+.brand-title-V {
+  font-size: 1.35rem;                 /* ajuste fino do tamanho */
+  font-weight: 700;
+  line-height: 1;                     /* alinha verticalmente ao logo */
+  color: #590b0b;                     /* azul mais escuro para contraste */
+  letter-spacing: .2px;
+}
+
 .links {
   min-width: 10vw;
   display: flex;

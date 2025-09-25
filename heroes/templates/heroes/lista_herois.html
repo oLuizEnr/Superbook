@@ -10,6 +10,9 @@
   <div class="col-md-4">
     <div class="card mb-3">
       <div class="card-body">
+        {% if hero.imagem.url %}
+        <img src="{{ hero.imagem.url }}" alt="" class="profile-pic">
+        {% endif %}
         <h5 class="card-title">{{ hero.codinome }}</h5>
         <p class="card-text">{{ hero.poder_principal }}</p>
         <small class="text-muted">{{ hero.cidade }}</small>
